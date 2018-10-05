@@ -11,14 +11,14 @@
 
     ```
     $ curl -LO https://storage.googleapis.com/chat-bin/v1.0/linux/server 
-    $ curl -LO https://storage.googleapis.com/chat-bin/v1.0/linux/clinet
+    $ curl -LO https://storage.googleapis.com/chat-bin/v1.0/linux/client
     ```
 
     #### MacOs:
 
     ```
     $ curl -LO https://storage.googleapis.com/chat-bin/v1.0/darwin/server
-    $ curl -LO https://storage.googleapis.com/chat-bin/v1.0/darwin/clinet
+    $ curl -LO https://storage.googleapis.com/chat-bin/v1.0/darwin/client
     ```
 
 2. Make binary executable :
