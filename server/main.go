@@ -12,12 +12,8 @@ import (
 	"sync"
 	"io/ioutil"
 
-	"github.com/urvil38/color"
+	"github.com/fatih/color"
 )
-
-func Color(s string, a color.Attribute) string {
-	return color.Wrap(s, a, color.Bold)
-}
 
 func chatManager(clients *clients, input chan message) {
 	for {
@@ -25,10 +21,10 @@ func chatManager(clients *clients, input chan message) {
 		clients.mu.Lock()
 		for _, client := range clients.connections {
 			if client.name != message.author {
-				client.conn.Write(bytes.NewBufferString(Color("                                 "+message.author+": ", color.FgGreen) + Color(message.message, color.FgYellow) + "\n").Bytes())
+				client.conn.Write(bytes.NewBufferString(color.GreenString("                                 "+message.author+": ") + color.YellowString(message.message) + "\n").Bytes())
 			}
 			if client.name == message.author {
-				client.conn.Write(bytes.NewBufferString(Color("Me"+": ", color.FgGreen) + Color(message.message, color.FgYellow) + "\n").Bytes())
+				client.conn.Write(bytes.NewBufferString(color.GreenString("Me: ") + color.YellowString(message.message) + "\n").Bytes())
 			}
 		}
 		clients.mu.Unlock()
@@ -104,7 +100,7 @@ func (cl *clients) handleConn(c net.Conn, input chan message) {
 	c.Write([]byte("Enter Your name: "))
 	numBytes, err := c.Read(b)
 	if err != nil || (numBytes-2) == 0 {
-		c.Write([]byte(Color("You must need provide your name!\n", color.FgRed)))
+		c.Write([]byte(color.RedString("You must need provide your name!\n")))
 		c.Close()
 	}
 	name := string(bytes.Trim(b[:numBytes], "\n\r\x00"))

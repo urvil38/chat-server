@@ -17,12 +17,12 @@ func main() {
 	flag.StringVar(&port, "p", "", "port number of server")
 	flag.Parse()
 
-	clientCert,err := ioutil.ReadFile("../certs/client.pem")
+	clientCert,err := ioutil.ReadFile("./certs/client.pem")
 	if err != nil {
 		panic(err)
 	}
 
-	clientKey,err := ioutil.ReadFile("../certs/client.key")
+	clientKey,err := ioutil.ReadFile("./certs/client.key")
 	if err != nil {
 		panic(err)
 	}
