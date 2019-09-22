@@ -1,31 +1,34 @@
 # Message Server
 
-![chat-server](https://storage.googleapis.com/chat-bin/chat-server.png)
+![chat-server](./docs/img/chat-server.png)
+![chat-client](./docs/img/chat-client.png)
 
-## Downloads
+# Build
 
-### Linux and Macos:
-1. For Linux and macos user you download chat-server with `curl`:
+- If you want to build opa-iptables right away, you need a working [Go environment](https://golang.org/doc/install). It requires Go version 1.12 and above.
 
-    #### Linux:
+```
+$ git clone https://github.com/urvil38/chat-server.git
+$ cd chat-server
+```
 
-    ```
-    $ curl -LO https://storage.googleapis.com/chat-bin/v1.0/linux/server 
-    $ curl -LO https://storage.googleapis.com/chat-bin/v1.0/linux/client
-    ```
+## For Linux:
 
-    #### MacOs:
+```
+$ make linux-build
+```
 
-    ```
-    $ curl -LO https://storage.googleapis.com/chat-bin/v1.0/darwin/server
-    $ curl -LO https://storage.googleapis.com/chat-bin/v1.0/darwin/client
-    ```
+## For MacOs/Darwin:
 
-2. Make binary executable :
-    ```
-    $ chmod +x ./server
-    $ chmod +x ./client
-    ```
+```
+$ make macos-build
+```
+
+## For Windows:
+
+```
+$ make windows-build
+```
 
 In order to gernerate X509 self signed certificates run the `cert.sh` script as following:
 ```
@@ -39,3 +42,4 @@ $ ./client -addr 127.0.0.1 -p 8080
 ```
 
 > You can configure address and port using `-addr` and `-p` command line flags.
+> You can configure certs dir using `-cert` command line flag.

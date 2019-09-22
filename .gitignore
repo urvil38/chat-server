@@ -1,6 +1,0 @@
-node_modules
-*.gem
-*.rbc
-.vscode
-.idea
-certs/
