@@ -37,8 +37,8 @@ $ ./cert.sh admin@gmail.com  # which creates certs folder in current directory
 
 Now start server and client as following:
 ```
-$ ./server -addr 127.0.0.1 -p 8080
-$ ./client -addr 127.0.0.1 -p 8080
+$ ./bin/chat-server -addr 127.0.0.1 -p 8080
+$ ./bin/chat-client -addr 127.0.0.1 -p 8080
 ```
 
 > You can configure address and port using `-addr` and `-p` command line flags.
